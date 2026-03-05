@@ -1,8 +1,8 @@
 package ArrayObjetos;
-import Metodos.JOption;
+import Metodos.EntradaSalida;
 import TDA.EstudianteIMC;
 public class ObjetoEstImc {
-    private EstudianteIMC[] datos;
+    private EstudianteIMC datos[];
     private byte j;
     public ObjetoEstImc(int tam){
         datos = new EstudianteIMC[tam];
@@ -11,16 +11,22 @@ public class ObjetoEstImc {
         return j == 0;}
     public EstudianteIMC AlmacenarEstudiante(){
         EstudianteIMC obj = new EstudianteIMC();
-        obj.setNombre(JOption.LecturaString("Nombre del estudiante"));
-        obj.setNacimiento(JOption.LecturaShort("Año de nacimiento"));
-        obj.setPeso(JOption.LecturaFloat("Peso en kg"));
-        obj.setAltura(JOption.LecturaFloat("Altura en metros"));
+        obj.setNombre(EntradaSalida.LecturaString("Nombre del estudiante"));
+        obj.setNacimiento(EntradaSalida.LecturaShort("Año de nacimiento"));
+        obj.setPeso(EntradaSalida.LecturaFloat("Peso en kg"));
+        obj.setAltura(EntradaSalida.LecturaFloat("Altura en metros"));
         return obj;}
     public void AgregarEstudiante(){
         if (j < datos.length){
             datos[j] = AlmacenarEstudiante();
             j++;
         }else{
-            JOption.MostrarError("Ya no hay espacio");}
+            EntradaSalida.MostrarError("Ya no hay espacio");}
+    }
+    public String VerObjetos(){
+        String cad="";
+        for(byte k=0;k<j;k++)
+            cad+= (k+1)+")"+datos[k].toString()+"\n";
+        return cad;
     }
 }
