@@ -29,4 +29,14 @@ public class ObjetoEstImc {
             cad+= (k+1)+")"+datos[k].toString()+"\n";
         return cad;
     }
+public void OrdenarBubble(){
+    EstudianteIMC aux;
+    byte i,k;
+    for(i=0;i<datos.length-1;i++){
+        for(k=(byte)(i+1);k<datos.length;k++){
+            if(datos[i].getNacimiento()>datos[k].getNacimiento()){
+            aux=datos[i];
+            datos[i]=datos[k];
+            datos[k]=aux;}}}
+        }
 }
