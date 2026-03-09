@@ -1,7 +1,13 @@
 package Metodos;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 public class EntradaSalida {
-    public static byte LecturaByte(String msje){
+public static byte LecturaByte(String msje){
     byte dato;
     while(true){
         String entrada=JOptionPane.showInputDialog(null,msje,"Campo obligatorio",JOptionPane.INFORMATION_MESSAGE);
@@ -157,6 +163,23 @@ continue;
 }
 public static void VerDatos(String titulo, String mensaje){
     JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+}
+public static void VerDatos2(String titulo,String datos){
+    if(titulo==null||titulo.isBlank())titulo="sin titulo";
+    if(datos==null||datos.isBlank())datos="sin datos disponibles";
+    JTextArea AreaSalida=new JTextArea(15,80);
+    JScrollPane Scroller=new JScrollPane(AreaSalida);
+    Scroller.setBorder(BorderFactory.createCompoundBorder(BorderFactory.
+    createEmptyBorder(5,5,5,5),BorderFactory.createLineBorder
+    (new Color(0x3F51B5),2,true)));
+    Scroller.setPreferredSize(new Dimension(500,300));
+    Font font=new Font("Verdana",Font.BOLD,13);
+    AreaSalida.setFont(font);
+    AreaSalida.setForeground(Color.BLUE);
+    AreaSalida.setBackground(Color.WHITE);
+    AreaSalida.append("\n"+datos);
+    AreaSalida.append("CopyRigth Rompejuegos\n");
+    JOptionPane.showMessageDialog(null,Scroller,titulo,JOptionPane.PLAIN_MESSAGE);
 }
 public static byte BotonOpciones(String Menu){
 String Valores[]=Menu.split(",");
