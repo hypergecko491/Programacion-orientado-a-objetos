@@ -128,9 +128,9 @@ public static void MenuSuma() {
     }
 }
 public static void SelectorMenus(){
-    String Menu = "Menu IMC estatico, Menu IMC dinamico, Metodos sobrecargados, Menu sumas, Salir";
+    String Menu = "Menu IMC estatico, Menu IMC dinamico, Metodos sobrecargados, Menu sumas,Menu areas, Salir";
     byte op = EntradaSalida.BotonOpciones(Menu);
-    while(op != 4){
+    while(op != 5){
         switch(op){
             case 0:
                 MenuIMC();
@@ -144,10 +144,54 @@ public static void SelectorMenus(){
             case 3:
                 MenuSuma();
             break;
+            case 4:
+                MenuAreas();
             default:
                 EntradaSalida.VerDatos2("Opción inválida","");
         }
         op = EntradaSalida.BotonOpciones(Menu);
     }
+}
+public static void MenuAreas(){
+String Menu="Rectangulo, Cuadrado, Trapecio, Rombo, Pentagono, Salir";
+Overload.Metodos obj=new Overload.Metodos();
+byte op=EntradaSalida.BotonOpciones(Menu);
+while(op!=5){
+switch(op){
+case 0:
+double base=EntradaSalida.LecturaDouble("Base");
+double altura=EntradaSalida.LecturaDouble("Altura");
+EntradaSalida.VerDatos2("Area Rectangulo",
+"Area: "+obj.area(base,altura));
+break;
+case 1:
+double lado=EntradaSalida.LecturaDouble("Lado");
+EntradaSalida.VerDatos2("Area Cuadrado",
+"Area: "+obj.area(lado));
+break;
+case 2:
+double B=EntradaSalida.LecturaDouble("Base mayor");
+double b=EntradaSalida.LecturaDouble("Base menor");
+double h=EntradaSalida.LecturaDouble("Altura");
+EntradaSalida.VerDatos2("Area Trapecio",
+"Area: "+obj.area(B,b,h));
+break;
+case 3:
+double D=EntradaSalida.LecturaDouble("Diagonal mayor");
+float d=EntradaSalida.LecturaFloat("Diagonal menor");
+EntradaSalida.VerDatos2("Area Rombo",
+"Area: "+obj.area(D,d));
+break;
+case 4:
+float p=EntradaSalida.LecturaFloat("Perimetro");
+float a=EntradaSalida.LecturaFloat("Apotema");
+EntradaSalida.VerDatos2("Area Pentagono",
+"Area: "+obj.area(p,a));
+break;
+default:
+EntradaSalida.VerDatos2("Opcion invalida","");
+}
+op=EntradaSalida.BotonOpciones(Menu);
+}
 }
 }
