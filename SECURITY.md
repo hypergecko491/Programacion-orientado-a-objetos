@@ -1,4 +1,4 @@
-# Politia de seguridad
+# Politica de seguridad
 
 ##  Versiones  con soporte
 Poo Tema 2 V2.0.0
