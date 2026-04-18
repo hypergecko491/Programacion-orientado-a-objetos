@@ -1,7 +1,7 @@
 Integrantes del equipo:
 
 
-Jose Yahir Rivera Calderon
+Jose Yahir Rivera Calderon(rompejuegos)
 
 Maryel  Guadalupe Moran Martinez
 
