@@ -1,25 +1,28 @@
 package Herenciaequipo;
-
 public class Aguila extends Ave {
-
-    private float VelocidadVuelo;
     private float AgudezaVisual;
-
-    public Aguila(float EnvergaduraAlas,
-                  String Nombre, byte Edad, float Peso,
+    private float VelocidadVuelo;
+    public Aguila(){}
+    public Aguila(String Nombre, byte Edad, float Peso,
                   String Dieta, String HorarioAlimentacion, String Sonido,
-                  float VelocidadVuelo, float AgudezaVisual) {
+                  float EnvergaduraAlas,
+                  float AgudezaVisual, float VelocidadVuelo) {
+        super(Nombre, Edad, Peso, Dieta, HorarioAlimentacion, Sonido, EnvergaduraAlas);
 
-        super(EnvergaduraAlas, Nombre, Edad, Peso, Dieta, HorarioAlimentacion, Sonido);
-
-        this.VelocidadVuelo = VelocidadVuelo;
         this.AgudezaVisual = AgudezaVisual;
+        this.VelocidadVuelo = VelocidadVuelo;
     }
+
+    public float getAgudezaVisual(){return AgudezaVisual;}
+    public void setAgudezaVisual(float AgudezaVisual){this.AgudezaVisual = AgudezaVisual;}
+
+    public float getVelocidadVuelo(){return VelocidadVuelo;}
+    public void setVelocidadVuelo(float VelocidadVuelo){this.VelocidadVuelo = VelocidadVuelo;}
 
     @Override
     public String toString() {
         return "AGUILA\n" + super.toString() +
-               "\nVelocidadVuelo=" + VelocidadVuelo +
-               "\nAgudezaVisual=" + AgudezaVisual + "\n";
+               "\nAgudezaVisual=" + AgudezaVisual +
+               "\nVelocidadVuelo=" + VelocidadVuelo + "\n";
     }
 }
