@@ -8,17 +8,12 @@ public class Aguila extends Ave {
                   float EnvergaduraAlas,
                   float AgudezaVisual, float VelocidadVuelo) {
         super(Nombre, Edad, Peso, Dieta, HorarioAlimentacion, Sonido, EnvergaduraAlas);
-
         this.AgudezaVisual = AgudezaVisual;
-        this.VelocidadVuelo = VelocidadVuelo;
-    }
-
+        this.VelocidadVuelo = VelocidadVuelo;}
     public float getAgudezaVisual(){return AgudezaVisual;}
     public void setAgudezaVisual(float AgudezaVisual){this.AgudezaVisual = AgudezaVisual;}
-
     public float getVelocidadVuelo(){return VelocidadVuelo;}
     public void setVelocidadVuelo(float VelocidadVuelo){this.VelocidadVuelo = VelocidadVuelo;}
-
     @Override
     public String toString() {
         return "AGUILA\n" + super.toString() +
