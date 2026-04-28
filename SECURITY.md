@@ -1,6 +1,7 @@
 # Politica de seguridad
 
 ##  Versiones  con soporte
+poo Tema 3 V3.0.0
 Poo Tema 2 V2.0.0
 Poo Tema 1 v1.0.0
 
@@ -8,7 +9,7 @@ Poo Tema 1 v1.0.0
 | Version | Supported          |
 | ------- | ------------------ |
 | 2.0.x   | :white_check_mark: |
-| 3.0.x   | :x:                |
+| 3.0.x   | :white_check_mark:                |
 | 1.0.x   | :white_check_mark: |
 | < 4.0   | :x:                |
 
