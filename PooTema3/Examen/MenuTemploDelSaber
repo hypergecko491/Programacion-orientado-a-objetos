@@ -1,0 +1,74 @@
+package Testeo;
+import TemploDelSaber.*;
+import EntradaSalida.JOption;
+public class MenuTemploDelSaber {
+    public static void menuTemploDelSaber() {
+        String menu = "Estudiante,Docente,Directivos,Mantenimiento,Consulta general,Consultas,Salir";
+        byte op = JOption.BotonOpciones(menu);
+        GestorPersonal gestor = new GestorPersonal();
+        while (op != 6) {
+            switch (op) {
+                case 0:
+                    Estudiante e = new Estudiante(
+                        JOption.LecturaString("Clave: "),
+                        JOption.LecturaString("Nombre: "),
+                        JOption.LecturaString("Apellidos: "),
+                        JOption.SeleCatego("Seleccione género", "Masculino,Femenino,helicoptero"),
+                        JOption.LecturaByte("Edad: "),
+                        JOption.SeleCatego("Carrera: ","Sistemas,Quimica,Industrial,Gestion,Electrica,Electronica,Mecanica,Informatica"),
+                        JOption.SeleCatego("Semestre: ","1,2,3,4,5,6,7,8,Servicio Social")
+                    );
+                    if(!gestor.agregarObjeto(e)){JOption.MostrarError("Clave duplicada, no se agregó.");}
+                    break;
+                case 1:
+                    Docentes d = new Docentes(
+                        JOption.LecturaString("Clave: "),
+                        JOption.LecturaString("Nombre: "),
+                        JOption.LecturaString("Apellidos: "),
+                        JOption.SeleCatego("Seleccione género", "Masculino,Femenino,helicoptero"),
+                        JOption.LecturaByte("Edad: "),
+                        JOption.LecturaString("Asignatura: ")
+                    );
+                    if(!gestor.agregarObjeto(d)){JOption.MostrarError("Clave duplicada, no se agregó.");}
+                    break;
+                case 2:
+                    Directivos dir = new Directivos(
+                        JOption.LecturaString("Clave: "),
+                        JOption.LecturaString("Nombre: "),
+                        JOption.LecturaString("Apellidos: "),
+                        JOption.SeleCatego("Seleccione género", "Masculino,Femenino,helicoptero"),
+                        JOption.LecturaByte("Edad: "),
+                        JOption.SeleCatego("Seleccione cargo", "Director,Subdirector,Coordinador,Administrativo"),
+                        JOption.LecturaFloat("Sueldo: ")
+                    );
+                    if(!gestor.agregarObjeto(dir)){JOption.MostrarError("Clave duplicada, no se agregó.");}
+                    break;
+                case 3:
+                    Mantenimiento m = new Mantenimiento(
+                        JOption.LecturaString("Clave: "),
+                        JOption.LecturaString("Nombre: "),
+                        JOption.LecturaString("Apellidos: "),
+                        JOption.SeleCatego("Seleccione género", "Masculino,Femenino,helicoptero"),
+                        JOption.LecturaByte("Edad: "),
+                        JOption.LecturaString("AreaAsignada: ")
+                    );
+                    if(!gestor.agregarObjeto(m)){JOption.MostrarError("Clave duplicada, no se agregó.");}
+                    break;
+                case 4:
+                    if(gestor.ArrayVacio()){JOption.MostrarError("No hay registros para mostrar.");}
+                    gestor.OrdenarBubble();
+                    String cad = gestor.consultaGral() + "\nDatos ordenados por edad...\n" + gestor.ImprimirObj();
+                    JOption.VerDatos2("Universidad Templo del Saber", cad);
+                    break;
+                case 5:
+                    String menuConsulta = "Estudiantes,Docentes,Directivos,Mantenimiento,Todos";
+                    byte opConsulta = JOption.BotonOpciones(menuConsulta);
+                    String resultado = gestor.consultarPorTipo(opConsulta);
+                    JOption.VerDatos2("Consulta de Personal", resultado);
+                    break;
+                default:
+                    JOption.MostrarError("Opción inválida");
+            }op = JOption.BotonOpciones(menu);
+        }
+    }
+}
